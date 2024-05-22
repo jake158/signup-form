@@ -165,7 +165,7 @@ form button {
 }
 
 
-/* Form */
+/* Form: inside body */
 
 .form-body {
     --row-gap: 45px;
@@ -222,6 +222,8 @@ input {
 }
 
 
+/* Form: outside body */
+
 form button {
     margin-top: 40px;
     outline: 0;
@@ -244,6 +246,10 @@ form button:hover {
     background-color: var(--main-hover);
 }
 
+form button:active {
+    background-color: var(--main);
+}
+
 .login-text a {
     color: var(--main);
     font-weight: bold;
@@ -255,4 +261,17 @@ form button:hover {
 
 .login-text a:hover {
     color: var(--main-hover);
+}
+
+
+/* Form: pseudo classes */
+
+input.clicked:invalid {
+    border-color: red;
+}
+
+input:focus,
+input:focus-visible {
+    border: 1px solid blue;
+    box-shadow: 0px 4px 8px 0px rgba(194, 194, 194, 0.45);
 }
