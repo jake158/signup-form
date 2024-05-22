@@ -1,34 +1,84 @@
 'use strict';
-const submit = document.querySelector('button[type="submit"]');
-submit.addEventListener('click', e => submitCheck(e));
 
-const inputs = document.querySelectorAll('input');
-inputs.forEach((input) => {
-    input.addEventListener('blur', () => inputClicked(input));
+document.addEventListener('DOMContentLoaded', () => {
+    setupEventListeners();
 });
 
-const passFieldOne = document.querySelector('#pass');
-const passFieldTwo = document.querySelector('#confirmpass');
+function setupEventListeners() {
+    const submit = document.querySelector('button[type="submit"]');
+    submit.addEventListener('click', handleSubmit);
 
-function submitCheck(event) {
+    const inputs = document.querySelectorAll('input');
+    inputs.forEach(input => input.addEventListener('blur', () => validateInput(input)));
+}
+
+function handleSubmit(event) {
     event.preventDefault();
-    inputs.forEach(input => inputClicked(input));
-    if (ensurePasswordsMatch()) {
-        event.currentTarget.closest('form').submit();
-    } else {
-        showPasswordMismatchError();
+
+    if (validateAllInputs()) {
+        submitForm(event);
     }
 }
 
-function ensurePasswordsMatch() {
-    return passFieldOne.value === passFieldTwo.value;
+function validateAllInputs() {
+    const inputs = document.querySelectorAll('input');
+    let allValid = true;
+
+    inputs.forEach(input => {
+        if (!validateInput(input)) {
+            allValid = false;
+        }
+    });
+    if (!arePasswordsMatching()) {
+        displayPasswordMismatchError();
+        allValid = false;
+    }
+
+    return allValid;
 }
 
-function showPasswordMismatchError() {
-    let existingInfo = passFieldTwo.nextElementSibling;
+function validateInput(input) {
+    input.classList.add('clicked');
+    removeExistingErrorMessage(input);
+
+    if (!input.validity.valid) {
+        displayErrorMessage(input, getErrorMessage(input));
+        return false;
+    }
+    return true;
+}
+
+function removeExistingErrorMessage(input) {
+    const existingInfo = input.nextElementSibling;
     if (existingInfo && existingInfo.classList.contains('input-info')) {
         existingInfo.remove();
     }
+}
+
+function getErrorMessage(input) {
+    if (input.validity.valueMissing) {
+        return '* Field is required';
+    } else {
+        return '* Invalid input';
+    }
+}
+
+function displayErrorMessage(input, message) {
+    const info = document.createElement('p');
+    info.classList.add('input-info');
+    info.textContent = message;
+    input.after(info);
+}
+
+function arePasswordsMatching() {
+    const passFieldOne = document.querySelector('#pass');
+    const passFieldTwo = document.querySelector('#confirmpass');
+    return passFieldOne.value === passFieldTwo.value;
+}
+
+function displayPasswordMismatchError() {
+    const passFieldTwo = document.querySelector('#confirmpass');
+    removeExistingErrorMessage(passFieldTwo);
 
     const info = document.createElement('p');
     info.classList.add('input-info');
@@ -36,23 +86,14 @@ function showPasswordMismatchError() {
     passFieldTwo.after(info);
 }
 
-function inputClicked(input) {
-    input.classList.add('clicked');
-
-    let existingInfo = input.nextElementSibling;
-    if (existingInfo && existingInfo.classList.contains('input-info')) {
-        existingInfo.remove();
-    }
-
-    if (!input.validity.valid) {
-        const info = document.createElement('p');
-        info.classList.add('input-info');
-
-        if (input.validity.valueMissing) {
-            info.textContent = '* Field is required';
-        } else {
-            info.textContent = '* Invalid input';
-        }
-        input.after(info);
+function submitForm(event) {
+    // event.currentTarget.closest('form').submit();
+    if (!document.querySelector('.submitted-info')) {
+        const p = document.createElement('p');
+        p.classList.add('submitted-info');
+        p.textContent = 'Form submitted!';
+        p.setAttribute('style',
+            'color: green; position: absolute; bottom:50px;');
+        document.querySelector('.login-text').after(p);
     }
 }
