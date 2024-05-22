@@ -19,9 +19,40 @@
             on <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">Unsplash</a>
         </p>
     </div>
-    <div>
-        <h2>This is not a real online service. You know you wish it was though.</h2>
+    <div class="main-content">
+        <h2>This is not a real online service. You know you wish it was, though.</h2>
         <h2>Sign up <span class="highlighted">now</span> to get started.</h2>
+
+        <form action="" method="post">
+            <div class="form-body">
+                <h2>Let's do this!</h2>
+                <div class="form-row">
+                    <label for="firstname">First name
+                        <input type="text" id="firstname" name="firstname" required></label>
+                    <label for="lastname">Last name
+                        <input type="text" id="lastname" name="lastname" required></label>
+                </div>
+
+                <div class="form-row">
+                    <label for="email">Email
+                        <input type="email" id="email" name="email" required></label>
+                    <label for="tel">Phone number
+                        <input type="tel" id="tel" name="phonenumber" required></label>
+                </div>
+
+                <div class="form-row">
+                    <label for="pass">Password
+                        <input type="password" id="pass" name="password" required></label>
+                    <label for="confirmpass">Confirm password
+                        <input type="password" id="confirmpass" required></label>
+                </div>
+            </div>
+            <button type="submit" class="clickable">Create Account</button>
+        </form>
+
+        <p class="login-text">Already have an account?
+            <a href="/" class="clickable">Log in</a>
+        </p>
     </div>
 
 </body>
