@@ -53,6 +53,10 @@ img {
     height: auto;
 }
 
+input {
+    font-family: inherit;
+}
+
 
 /* Styles */
 
@@ -120,7 +124,7 @@ body {
 /* Main panel */
 
 .main-content {
-    --padding-left: 50px;
+    --padding-left: 55px;
     background-color: #F9FAFB;
 
     flex: 1;
@@ -151,6 +155,7 @@ form button {
 .main-content h2 {
     font-weight: bold;
     color: rgb(0 0 0 / 0.8);
+    max-width: 700px;
 }
 
 .underlined {
@@ -163,17 +168,65 @@ form button {
 /* Form */
 
 .form-body {
+    --row-gap: 45px;
+    --column-gap: 55px;
+
+    margin-top: 10px;
     background-color: white;
     -webkit-box-shadow: 0px 9px 12px 0px rgba(194, 194, 194, 0.4);
     -moz-box-shadow: 0px 9px 12px 0px rgba(194, 194, 194, 0.4);
     box-shadow: 0px 9px 12px 0px rgba(194, 194, 194, 0.4);
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--row-gap);
 }
+
+.form-body h2 {
+    opacity: 0.9;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+}
+
+.form-row {
+
+    display: flex;
+    align-items: flex-start;
+    gap: var(--column-gap);
+}
+
+input {
+    width: 250px;
+    height: initial;
+    padding: 0.45rem;
+    font-size: 1.1rem;
+
+    border: 1px solid #D6D9DC;
+    border-radius: 5px;
+}
+
+.form-row div {
+    position: relative;
+}
+
+.form-row div>label {
+    position: absolute;
+    top: -18px;
+
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    opacity: 0.67;
+}
+
 
 form button {
     margin-top: 40px;
     outline: 0;
     cursor: pointer;
-    padding: 13px 40px;
+    padding: 13px 45px;
     font-size: 1.05rem;
     font-weight: bold;
 
@@ -189,4 +242,17 @@ form button {
 
 form button:hover {
     background-color: var(--main-hover);
+}
+
+.login-text a {
+    color: var(--main);
+    font-weight: bold;
+    text-decoration: none;
+
+    transition: 0.05s cubic-bezier(0.3, 0, 0.5, 1);
+    transition-property: color, background-color, border-color;
+}
+
+.login-text a:hover {
+    color: var(--main-hover);
 }
