@@ -1,0 +1,108 @@
+/* Fonts */
+
+@font-face {
+    font-family: 'bebas';
+    src: url('fonts/bebas-regular-webfont.woff2') format('woff2'),
+        url('fonts/bebas-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'inter';
+    src: url('fonts/inter-regular-webfont.woff2') format('woff2'),
+        url('fonts/inter-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* Quick reset */
+
+:root {
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 16px;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* Styles */
+
+body {
+    font-family: "inter", system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    height: 100vh;
+
+    display: flex;
+}
+
+.highlighted {
+    color: rgb(224, 224, 20);
+}
+
+
+/* Image sidepanel */
+
+.image-sidepanel {
+    background-image: url(background.jpg);
+    background-size: cover;
+    width: 32vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.image-sidepanel p {
+    color: rgb(26 26 26);
+    font-size: 1.1rem;
+    text-align: center;
+    margin: 13px;
+}
+
+.image-sidepanel p a {
+    color: inherit;
+}
+
+.logo-container {
+    --logo-height: 160px;
+    --opacity: 0.38;
+
+    height: calc(var(--logo-height) * 1.15);
+    margin-top: 15vh;
+    background-color: rgb(0 0 0 / var(--opacity));
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-container img {
+    height: var(--logo-height);
+    width: auto;
+}
+
+.logo-container p {
+    font-family: 'bebas';
+    color: rgb(255 255 255);
+    font-size: 7rem;
+}
