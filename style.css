@@ -56,6 +56,11 @@ img {
 
 /* Styles */
 
+:root {
+    --main: #c29062;
+    --main-hover: #dba470;
+}
+
 body {
     font-family: "inter", system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     height: 100vh;
@@ -116,7 +121,7 @@ body {
 
 .main-content {
     --padding-left: 50px;
-    background-color: #ecedee;
+    background-color: #F9FAFB;
 
     flex: 1;
     display: flex;
@@ -148,9 +153,9 @@ form button {
     color: rgb(0 0 0 / 0.8);
 }
 
-.highlighted {
+.underlined {
     text-decoration: underline;
-    text-decoration-color: yellow;
+    text-decoration-color: var(--main);
     text-decoration-thickness: 0.3rem;
 }
 
@@ -159,4 +164,29 @@ form button {
 
 .form-body {
     background-color: white;
+    -webkit-box-shadow: 0px 9px 12px 0px rgba(194, 194, 194, 0.4);
+    -moz-box-shadow: 0px 9px 12px 0px rgba(194, 194, 194, 0.4);
+    box-shadow: 0px 9px 12px 0px rgba(194, 194, 194, 0.4);
+}
+
+form button {
+    margin-top: 40px;
+    outline: 0;
+    cursor: pointer;
+    padding: 13px 40px;
+    font-size: 1.05rem;
+    font-weight: bold;
+
+    border: 1px solid;
+    border-radius: 8px;
+    color: white;
+    background-color: var(--main);
+    border-color: #1b1f2326;
+
+    transition: 0.05s cubic-bezier(0.3, 0, 0.5, 1);
+    transition-property: color, background-color, border-color;
+}
+
+form button:hover {
+    background-color: var(--main-hover);
 }
