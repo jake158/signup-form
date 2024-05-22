@@ -100,7 +100,7 @@ body {
     --opacity: 0.38;
 
     height: calc(var(--logo-height) * 1.15);
-    margin-top: 15vh;
+    margin-top: 13vh;
     background-color: rgb(0 0 0 / var(--opacity));
 
     display: flex;
@@ -145,7 +145,7 @@ body {
 .form-body {
     /* Making sure form body has own padding and therefore bg color*/
     /* TRBL */
-    padding: 20px 0px 20px var(--padding-left);
+    padding: 20px 0px 30px var(--padding-left);
 }
 
 form button {
@@ -173,9 +173,7 @@ form button {
 
     margin-top: 10px;
     background-color: white;
-    -webkit-box-shadow: 0px 9px 12px 0px rgba(194, 194, 194, 0.4);
-    -moz-box-shadow: 0px 9px 12px 0px rgba(194, 194, 194, 0.4);
-    box-shadow: 0px 9px 12px 0px rgba(194, 194, 194, 0.4);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
     display: flex;
     flex-direction: column;
@@ -276,7 +274,7 @@ input.clicked:invalid {
 input:focus,
 input:focus-visible {
     border: 1px solid blue;
-    box-shadow: 0px 4px 8px 0px rgba(194, 194, 194, 0.45);
+    box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
 }
 
 
