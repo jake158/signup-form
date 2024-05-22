@@ -67,7 +67,7 @@ input {
 
 body {
     font-family: "inter", system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    height: 100vh;
+    min-height: 100vh;
 
     display: flex;
 }
@@ -76,7 +76,7 @@ body {
 /* Image sidepanel */
 
 .image-sidepanel {
-    background-image: url(background.jpg);
+    background-image: url(imgs/background.jpg);
     background-size: cover;
     width: 32vw;
 
@@ -190,7 +190,6 @@ form button {
 }
 
 .form-row {
-
     display: flex;
     align-items: flex-start;
     gap: var(--column-gap);
@@ -288,4 +287,18 @@ input:focus-visible {
     bottom: -18px;
     font-size: 0.8rem;
     color: var(--error-red);
+}
+
+
+/* Wrap on smaller screens */
+
+@media only screen and (max-width: 700px) {
+    .form-row {
+        flex-direction: column;
+        gap: var(--column-gap);
+    }
+
+    input {
+        width: 200px;
+    }
 }

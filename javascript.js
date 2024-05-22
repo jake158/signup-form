@@ -92,8 +92,7 @@ function submitForm(event) {
         const p = document.createElement('p');
         p.classList.add('submitted-info');
         p.textContent = 'Form submitted!';
-        p.setAttribute('style',
-            'color: green; position: absolute; bottom:50px;');
+        p.setAttribute('style', 'color: green; position: absolute; bottom:50px;');
         document.querySelector('.login-text').after(p);
     }
 }
